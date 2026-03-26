@@ -49,7 +49,7 @@ export default function CreateProjectLayout({
   const activeTab = getActiveTab();
 
   return (
-    <div className="container mx-auto px-4 py-8 md:px-8">
+    <div className="container mx-auto px-4 py-8 md:px-8 transition-colors duration-300">
       {/* Header & Back Link */}
       <motion.div 
         initial="hidden"
@@ -59,12 +59,12 @@ export default function CreateProjectLayout({
       >
         <Link 
           href="/" 
-          className="group flex items-center gap-2 text-sm font-medium text-gray-500 transition-colors hover:text-[#1877F2]"
+          className="group flex items-center gap-2 text-sm font-medium text-gray-400 transition-colors hover:text-[#1877F2]"
         >
           <ChevronLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
           Back to Dashboard
         </Link>
-        <h1 className="mt-4 text-3xl font-bold text-gray-900 tracking-tight">Projects</h1>
+        <h1 className="mt-4 text-3xl font-bold text-gray-900 dark:text-white tracking-tight">Projects</h1>
       </motion.div>
 
       {/* Navigation Tabs */}
@@ -72,7 +72,7 @@ export default function CreateProjectLayout({
         initial="hidden"
         animate="visible"
         variants={itemVariants}
-        className="mb-8 flex flex-wrap gap-2 rounded-2xl bg-white p-2 shadow-sm border border-gray-100 items-center overflow-hidden"
+        className="mb-8 flex flex-wrap gap-2 rounded-2xl bg-white dark:bg-gray-900 p-2 shadow-sm border border-gray-100 dark:border-gray-800 items-center overflow-hidden"
       >
         {tabs.map((tab) => {
           const isActive = activeTab === tab.id;
@@ -83,14 +83,14 @@ export default function CreateProjectLayout({
               className={`relative flex items-center gap-2 rounded-xl px-4 py-3 text-sm font-semibold transition-colors duration-200 z-10 ${
                 isActive
                   ? "text-white"
-                  : "text-gray-500 hover:text-[#1877F2]"
+                  : "text-gray-500 dark:text-gray-400 hover:text-[#1877F2] dark:hover:text-blue-400"
               }`}
             >
               <span className="relative z-20 flex items-center gap-2 whitespace-nowrap">
                 {tab.icon}
                 {tab.label}
                 {tab.comingSoon && (
-                  <span className={`ml-1 flex items-center rounded-full bg-blue-50 px-2 py-0.5 text-[10px] font-bold uppercase tracking-tight text-[#1877F2]`}>
+                  <span className={`ml-1 flex items-center rounded-full bg-blue-50 dark:bg-blue-900/20 px-2 py-0.5 text-[10px] font-bold uppercase tracking-tight text-[#1877F2]`}>
                     Soon
                   </span>
                 )}

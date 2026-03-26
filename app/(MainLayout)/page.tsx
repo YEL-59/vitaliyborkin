@@ -38,7 +38,7 @@ const dashboardStats = [
     label: "In Progress",
     trend: "+8.3%",
     chart: "line",
-    color: "bg-[#1e1e76]",
+    color: "bg-[#1e1e76] dark:bg-blue-900/40",
   },
   {
     icon: <Flame className="h-6 w-6 text-white" />,
@@ -46,7 +46,7 @@ const dashboardStats = [
     label: "Completed Project",
     trend: "+15.7%",
     chart: "donut",
-    color: "bg-[#1e1e76]",
+    color: "bg-[#1e1e76] dark:bg-blue-900/40",
   },
 ];
 
@@ -99,12 +99,12 @@ export default function DashboardPage() {
       initial="hidden"
       animate="visible"
       variants={containerVariants}
-      className="container mx-auto px-4 py-8 md:px-8"
+      className="container mx-auto px-4 py-8 md:px-8 transition-colors duration-300"
     >
       {/* Dashboard Header */}
       <motion.h1
         variants={itemVariants}
-        className="mb-6 text-2xl font-bold text-gray-900"
+        className="mb-6 text-2xl font-bold text-gray-900 dark:text-white"
       >
         Dashboard
       </motion.h1>
@@ -116,7 +116,7 @@ export default function DashboardPage() {
             key={idx}
             variants={itemVariants}
             whileHover={{ y: -5, transition: { duration: 0.2 } }}
-            className={`${stat.color} relative overflow-hidden rounded-2xl p-6 text-white h-[180px] flex flex-col justify-between shadow-lg shadow-indigo-900/10`}
+            className={`${stat.color} relative overflow-hidden rounded-2xl p-6 text-white h-[180px] flex flex-col justify-between shadow-lg shadow-indigo-900/10 dark:shadow-none border border-transparent dark:border-blue-900/20`}
           >
             <div className="flex items-center justify-between">
               <motion.div
@@ -217,7 +217,7 @@ export default function DashboardPage() {
       <div className="mb-6 flex items-center justify-between">
         <motion.h2
           variants={itemVariants}
-          className="text-2xl font-bold text-gray-900"
+          className="text-2xl font-bold text-gray-900 dark:text-white"
         >
           Projects
         </motion.h2>
@@ -226,7 +226,7 @@ export default function DashboardPage() {
             variants={itemVariants}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="flex items-center gap-2 rounded-[12px] bg-[#1877F2] shadow-[0_10px_15px_-3px_rgba(30,30,118,0.20),0_4px_6px_-4px_rgba(30,30,118,0.20)] px-5 py-3 text-sm font-semibold text-white transition-all cursor-pointer select-none"
+            className="flex items-center gap-2 rounded-[12px] bg-[#1877F2] shadow-[0_10px_15px_-3px_rgba(30,30,118,0.20),0_4px_6px_-4px_rgba(30,30,118,0.20)] dark:shadow-none px-5 py-3 text-sm font-semibold text-white transition-all cursor-pointer select-none"
           >
             <Plus className="h-5 w-5" />
             Create New Project
@@ -237,7 +237,7 @@ export default function DashboardPage() {
 
       <motion.div
         variants={itemVariants}
-        className="overflow-hidden rounded-xl border border-gray-100 bg-white shadow-sm transition-all"
+        className="overflow-hidden rounded-xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900 shadow-sm transition-all"
       >
         <div className="overflow-x-auto scrollbar-hide w-full">
           <table className="w-full text-left border-collapse table-auto md:table-fixed">
@@ -256,7 +256,7 @@ export default function DashboardPage() {
 
             <motion.tbody
               variants={containerVariants}
-              className="divide-y divide-gray-50"
+              className="divide-y divide-gray-50 dark:divide-gray-800"
             >
               {projects.map((project, idx) => (
                 <motion.tr
@@ -266,38 +266,38 @@ export default function DashboardPage() {
                   className="group transition-colors cursor-default"
                 >
                   <td className="px-6 py-5">
-                    <div className="font-medium text-gray-900 leading-tight">
+                    <div className="font-medium text-gray-900 dark:text-white leading-tight">
                       {project.name}
                     </div>
-                    <div className="text-[10px] uppercase font-bold text-gray-400 mt-1">
+                    <div className="text-[10px] uppercase font-bold text-gray-400 dark:text-gray-500 mt-1">
                       {project.id}
                     </div>
                   </td>
-                  <td className="px-6 py-5 text-sm text-gray-500 font-medium">
+                  <td className="px-6 py-5 text-sm text-gray-500 dark:text-gray-400 font-medium">
                     {project.location}
                   </td>
                   <td className="px-6 py-5">
-                    <div className="font-semibold text-gray-900 text-sm leading-tight">
+                    <div className="font-semibold text-gray-900 dark:text-white text-sm leading-tight">
                       {project.voltage}
                     </div>
-                    <div className="text-[10px] font-bold text-gray-400 mt-0.5">
+                    <div className="text-[10px] font-bold text-gray-400 dark:text-gray-500 mt-0.5">
                       {project.phase}
                     </div>
                   </td>
-                  <td className="px-6 py-5 text-sm text-gray-500 font-medium">
+                  <td className="px-6 py-5 text-sm text-gray-500 dark:text-gray-400 font-medium">
                     {project.nec}
                   </td>
-                  <td className="px-6 py-5 text-sm text-gray-500 font-medium">
+                  <td className="px-6 py-5 text-sm text-gray-500 dark:text-gray-400 font-medium">
                     {project.lastModified}
                   </td>
                   <td className="px-6 py-5">
                     <span
                       className={`inline-flex items-center rounded-full px-3 py-1 text-[11px] font-bold shadow-sm ${
                         project.status === "In Progress"
-                          ? "bg-[#EFF6FF] text-[#3B82F6]"
+                          ? "bg-[#EFF6FF] dark:bg-blue-900/40 text-[#3B82F6]"
                           : project.status === "Complete"
-                            ? "bg-[#F0FDF4] text-[#22C55E]"
-                            : "bg-[#F3F4F6] text-[#6B7280]"
+                            ? "bg-[#F0FDF4] dark:bg-green-900/40 text-[#22C55E]"
+                            : "bg-[#F3F4F6] dark:bg-gray-800 text-[#6B7280] dark:text-gray-400"
                       }`}
                     >
                       {project.status}
@@ -306,7 +306,7 @@ export default function DashboardPage() {
                   <td className="px-6 py-5">
                     <motion.button
                       whileHover={{ scale: 1.2, color: "#111827" }}
-                      className="text-gray-400 cursor-pointer p-1 rounded-md transition-all"
+                      className="text-gray-400 dark:text-gray-500 cursor-pointer p-1 rounded-md transition-all"
                     >
                       <MoreVertical className="h-5 w-5" />
                     </motion.button>

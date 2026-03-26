@@ -5,10 +5,10 @@ import {
   Zap,
   FileText
 } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { useRouter } from "next/navigation";
 
-const tabContentVariants = {
+const tabContentVariants: Variants = {
   initial: { opacity: 0, x: 20 },
   animate: { opacity: 1, x: 0, transition: { duration: 0.3, ease: "easeOut" } },
   exit: { opacity: 0, x: -20, transition: { duration: 0.2, ease: "easeIn" } }
