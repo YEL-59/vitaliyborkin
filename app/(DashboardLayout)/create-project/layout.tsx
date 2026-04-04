@@ -35,18 +35,9 @@ export default function CreateProjectLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const pathname = usePathname();
+  const pathname = usePathname() ?? "";
 
-  const getActiveTab = () => {
-    if (pathname.includes("/info")) return "info";
-    if (pathname.includes("/load")) return "load";
-    if (pathname.includes("/panel")) return "panel";
-    if (pathname.includes("/design")) return "design";
-    if (pathname.includes("/reports")) return "reports";
-    return "info"; // default
-  };
-
-  const activeTab = getActiveTab();
+  const activeTab = tabs.find((tab) => pathname.includes(tab.id))?.id || "info";
 
   return (
     <div className="container mx-auto px-4 py-8 md:px-8 transition-colors duration-300">
@@ -59,7 +50,7 @@ export default function CreateProjectLayout({
       >
         <Link 
           href="/" 
-          className="group flex items-center gap-2 text-sm font-medium text-gray-400 transition-colors hover:text-[#1877F2]"
+          className="group flex items-center gap-2 text-sm font-medium text-gray-400 transition-colors hover:text-primary"
         >
           <ChevronLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
           Back to Dashboard
@@ -83,14 +74,14 @@ export default function CreateProjectLayout({
               className={`relative flex items-center gap-2 rounded-xl px-4 py-3 text-sm font-semibold transition-colors duration-200 z-10 ${
                 isActive
                   ? "text-white"
-                  : "text-gray-500 dark:text-gray-400 hover:text-[#1877F2] dark:hover:text-blue-400"
+                  : "text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary"
               }`}
             >
               <span className="relative z-20 flex items-center gap-2 whitespace-nowrap">
                 {tab.icon}
                 {tab.label}
                 {tab.comingSoon && (
-                  <span className={`ml-1 flex items-center rounded-full bg-blue-50 dark:bg-blue-900/20 px-2 py-0.5 text-[10px] font-bold uppercase tracking-tight text-[#1877F2]`}>
+                  <span className={`ml-1 flex items-center rounded-full bg-primary/10 dark:bg-primary/20 px-2 py-0.5 text-[10px] font-bold uppercase tracking-tight text-primary`}>
                     Soon
                   </span>
                 )}
@@ -98,7 +89,7 @@ export default function CreateProjectLayout({
               {isActive && (
                 <motion.div
                   layoutId="activeTab"
-                  className="absolute inset-0 bg-[#1877F2] rounded-xl z-0 shadow-md"
+                  className="absolute inset-0 bg-primary rounded-xl z-0 shadow-md"
                   transition={{ type: "spring", bounce: 0.25, duration: 0.5 }}
                 />
               )}

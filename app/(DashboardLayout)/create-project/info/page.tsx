@@ -64,7 +64,7 @@ export default function ProjectInfoPage() {
                 {...register("projectName", { required: "Project name is required" })}
                 type="text"
                 placeholder="Enter project name"
-                className={`w-full rounded-xl bg-[#F3F4F6] dark:bg-gray-800 px-4 py-3.5 text-sm dark:text-white outline-none transition-all focus:bg-white dark:focus:bg-gray-700 focus:ring-2 border border-transparent ${errors.projectName ? "ring-2 ring-red-500/20 border-red-500" : "focus:ring-[#1877F2]/20 focus:border-[#1877F2]"
+                className={`w-full rounded-xl bg-[#F3F4F6] dark:bg-gray-800 px-4 py-3.5 text-sm dark:text-white outline-none transition-all focus:bg-white dark:focus:bg-gray-700 focus:ring-2 border border-transparent ${errors.projectName ? "ring-2 ring-red-500/20 border-red-500" : "focus:ring-primary/20 focus:border-primary"
                   }`}
               />
               {errors.projectName && <p className="text-[11px] font-bold text-red-500 px-1 italic">*{errors.projectName.message}</p>}
@@ -75,7 +75,7 @@ export default function ProjectInfoPage() {
                 {...register("location", { required: "Location is required" })}
                 type="text"
                 placeholder="Enter project address or location"
-                className={`w-full rounded-xl bg-[#F3F4F6] dark:bg-gray-800 px-4 py-3.5 text-sm dark:text-white outline-none transition-all focus:bg-white dark:focus:bg-gray-700 focus:ring-2 border border-transparent ${errors.location ? "ring-2 ring-red-500/20 border-red-500" : "focus:ring-[#1877F2]/20 focus:border-[#1877F2]"
+                className={`w-full rounded-xl bg-[#F3F4F6] dark:bg-gray-800 px-4 py-3.5 text-sm dark:text-white outline-none transition-all focus:bg-white dark:focus:bg-gray-700 focus:ring-2 border border-transparent ${errors.location ? "ring-2 ring-red-500/20 border-red-500" : "focus:ring-primary/20 focus:border-primary"
                   }`}
               />
               {errors.location && <p className="text-[11px] font-bold text-red-500 px-1 italic">*{errors.location.message}</p>}
@@ -86,7 +86,7 @@ export default function ProjectInfoPage() {
                 {...register("description")}
                 rows={4}
                 placeholder="Enter project description (optional)"
-                className="w-full rounded-xl bg-[#F3F4F6] dark:bg-gray-800 px-4 py-3.5 text-sm dark:text-white outline-none transition-all focus:bg-white dark:focus:bg-gray-700 focus:ring-2 focus:ring-[#1877F2]/20 border border-transparent focus:border-[#1877F2] resize-none"
+                className="w-full rounded-xl bg-[#F3F4F6] dark:bg-gray-800 px-4 py-3.5 text-sm dark:text-white outline-none transition-all focus:bg-white dark:focus:bg-gray-700 focus:ring-2 focus:ring-primary/20 border border-transparent focus:border-primary resize-none"
               />
             </div>
           </div>
@@ -101,7 +101,7 @@ export default function ProjectInfoPage() {
               <div className="relative">
                 <select
                   {...register("necCodeYear", { required: "Please select year" })}
-                  className={`flex w-full appearance-none items-center justify-between rounded-xl bg-[#F3F4F6] dark:bg-gray-800 px-4 py-3.5 text-sm dark:text-white outline-none transition-all focus:bg-white dark:focus:bg-gray-700 focus:ring-2 border border-transparent cursor-pointer ${errors.necCodeYear ? "ring-2 ring-red-500/20 border-red-500" : "focus:ring-[#1877F2]/20 focus:border-[#1877F2]"
+                  className={`flex w-full appearance-none items-center justify-between rounded-xl bg-[#F3F4F6] dark:bg-gray-800 px-4 py-3.5 text-sm dark:text-white outline-none transition-all focus:bg-white dark:focus:bg-gray-700 focus:ring-2 border border-transparent cursor-pointer ${errors.necCodeYear ? "ring-2 ring-red-500/20 border-red-500" : "focus:ring-primary/20 focus:border-primary"
                     }`}
                 >
                   <option value="">Select year</option>
@@ -118,7 +118,7 @@ export default function ProjectInfoPage() {
               <div className="relative">
                 <select
                   {...register("calculationType", { required: "Calculation type is required" })}
-                  className={`flex w-full appearance-none items-center justify-between rounded-xl bg-[#F3F4F6] dark:bg-gray-800 px-4 py-3.5 text-sm dark:text-white outline-none transition-all focus:bg-white dark:focus:bg-gray-700 focus:ring-2 border border-transparent cursor-pointer font-medium ${errors.calculationType ? "ring-2 ring-red-500/20 border-red-500" : "focus:ring-[#1877F2]/20 focus:border-[#1877F2]"
+                  className={`flex w-full appearance-none items-center justify-between rounded-xl bg-[#F3F4F6] dark:bg-gray-800 px-4 py-3.5 text-sm dark:text-white outline-none transition-all focus:bg-white dark:focus:bg-gray-700 focus:ring-2 border border-transparent cursor-pointer font-medium ${errors.calculationType ? "ring-2 ring-red-500/20 border-red-500" : "focus:ring-primary/20 focus:border-primary"
                     }`}
                 >
                   <option value="Single Family Dwelling">Single Family Dwelling</option>
@@ -134,7 +134,7 @@ export default function ProjectInfoPage() {
               <div className="relative">
                 <select
                   {...register("primarySystemVoltage", { required: "Please select voltage" })}
-                  className={`flex w-full appearance-none items-center justify-between rounded-xl bg-[#F3F4F6] dark:bg-gray-800 px-4 py-3.5 text-sm dark:text-white outline-none transition-all focus:bg-white dark:focus:bg-gray-700 focus:ring-2 border border-transparent cursor-pointer ${errors.primarySystemVoltage ? "ring-2 ring-red-500/20 border-red-500" : "focus:ring-[#1877F2]/20 focus:border-[#1877F2]"
+                  className={`flex w-full appearance-none items-center justify-between rounded-xl bg-[#F3F4F6] dark:bg-gray-800 px-4 py-3.5 text-sm dark:text-white outline-none transition-all focus:bg-white dark:focus:bg-gray-700 focus:ring-2 border border-transparent cursor-pointer ${errors.primarySystemVoltage ? "ring-2 ring-red-500/20 border-red-500" : "focus:ring-primary/20 focus:border-primary"
                     }`}
                 >
                   <option value="">Select voltage</option>
@@ -147,7 +147,7 @@ export default function ProjectInfoPage() {
               {errors.primarySystemVoltage && <p className="text-[11px] font-bold text-red-500 px-1 italic">*{errors.primarySystemVoltage.message}</p>}
             </div>
           </div>
-          <button type="button" className="mt-6 flex items-center gap-2 text-sm font-bold text-[#1877F2] transition-all hover:gap-3 hover:opacity-80">
+          <button type="button" className="mt-6 flex items-center gap-2 text-sm font-bold text-primary transition-all hover:gap-3 hover:opacity-80">
             <PlusCircle className="h-4 w-4" />
             Add Secondary System Voltage
           </button>
@@ -166,7 +166,7 @@ export default function ProjectInfoPage() {
             type="submit"
             disabled={!isValid}
             className={`w-full md:w-auto min-w-[140px] rounded-xl px-10 py-3.5 text-sm font-bold text-white transition-all active:scale-95 ${isValid
-              ? "bg-[#1877F2] shadow-[0_10px_15px_-3px_rgba(24,119,242,0.3)] hover:bg-blue-600" 
+              ? "bg-primary shadow-lg shadow-primary/20 hover:opacity-90" 
               : "bg-gray-400 cursor-not-allowed"
             }`}
           >

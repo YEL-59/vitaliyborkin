@@ -21,10 +21,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${roboto.variable} h-full antialiased`}
-    >
+    <html lang="en" className={`${roboto.variable} h-full antialiased`}>
       <body className="font-roboto min-h-full flex flex-col selection:bg-blue-100 selection:text-blue-900">
         <ThemeProvider
           attribute="class"
@@ -38,4 +35,3 @@ export default function RootLayout({
     </html>
   );
 }
-

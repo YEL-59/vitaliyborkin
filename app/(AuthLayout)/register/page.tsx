@@ -60,14 +60,28 @@ export default function RegisterPage() {
       {/* Right Panel: Form Area */}
       <div className="flex flex-1 flex-col justify-center px-16 py-10 lg:pl-10">
         {/* Logo */}
-        <div className="mb-6 flex justify-center">
-          <Image src={LogoImg} alt="Logo" width={120} height={100} />
-        </div>
+          <Link href="/" className="flex items-center justify-center gap-2 group shrink-0 mb-8">
+          <div className="flex items-center gap-2">
+            <Image 
+              src={LogoImg} 
+              alt="Logo" 
+              width={40} 
+              height={40} 
+              className="md:w-[50px] md:h-[50px] w-[32px] h-[32px] object-contain"
+            />
+            <div className="flex flex-col">
+              <p className="text-lg md:text-xl font-bold tracking-tight text-primary leading-tight">DEMANDEX</p>
+              <p className="text-[8px] md:text-xs font-medium text-primary">
+                Design · Calculate · Submit
+              </p>
+            </div>
+          </div>
+        </Link>
 
         {/* Heading */}
         <div className="mb-8 flex items-center justify-between">
           <h1 className="text-2xl font-bold text-gray-900">
-            Register in <span className="text-[#1877F2]">VoltCalc</span>
+            Register in <span className="text-primary">DEMANDEX</span>
           </h1>
           <Link href="/signin" className="text-gray-400 hover:text-gray-600 transition-colors">
              <X className="h-6 w-6" />
@@ -83,7 +97,7 @@ export default function RegisterPage() {
                 {...register("firstName", { required: true })}
                 type="text"
                 placeholder="First name"
-                className="w-full rounded-lg bg-white px-4 py-3 text-sm font-medium text-gray-700 border border-gray-200 outline-none focus:border-[#1877F2] transition-all"
+                className="w-full rounded-lg bg-white px-4 py-3 text-sm font-medium text-gray-700 border border-gray-200 outline-none focus:border-primary transition-all"
               />
             </div>
             {/* Last Name */}
@@ -92,7 +106,7 @@ export default function RegisterPage() {
                 {...register("lastName", { required: true })}
                 type="text"
                 placeholder="Last name"
-                className="w-full rounded-lg bg-white px-4 py-3 text-sm font-medium text-gray-700 border border-gray-200 outline-none focus:border-[#1877F2] transition-all"
+                className="w-full rounded-lg bg-white px-4 py-3 text-sm font-medium text-gray-700 border border-gray-200 outline-none focus:border-primary transition-all"
               />
             </div>
           </div>
@@ -106,7 +120,7 @@ export default function RegisterPage() {
               })}
               type="text"
               placeholder="Email"
-              className="w-full rounded-lg bg-white px-4 py-3 text-sm font-medium text-gray-700 border border-gray-200 outline-none focus:border-[#1877F2] transition-all"
+              className="w-full rounded-lg bg-white px-4 py-3 text-sm font-medium text-gray-700 border border-gray-200 outline-none focus:border-primary transition-all"
             />
           </div>
 
@@ -116,7 +130,7 @@ export default function RegisterPage() {
               {...register("password", { required: true, minLength: 6 })}
               type={showPassword ? "text" : "password"}
               placeholder="Password"
-              className="w-full rounded-lg bg-white px-4 py-3 text-sm font-medium text-gray-700 border border-gray-200 outline-none focus:border-[#1877F2] transition-all pr-12"
+              className="w-full rounded-lg bg-white px-4 py-3 text-sm font-medium text-gray-700 border border-gray-200 outline-none focus:border-primary transition-all pr-12"
             />
             <button 
                 type="button" 
@@ -131,7 +145,7 @@ export default function RegisterPage() {
           <div className="pt-2">
             <button 
               type="submit"
-              className="w-full rounded-lg bg-[#1877F2] shadow-[0_10px_15px_-3px_rgba(30,30,118,0.2),0_4px_6px_-4px_rgba(30,30,118,0.2)] py-3 text-base font-semibold text-white cursor-pointer hover:bg-blue-600 transition-all select-none"
+              className="w-full rounded-lg bg-primary shadow-lg py-3 text-base font-semibold text-white cursor-pointer hover:opacity-90 transition-all select-none"
             >
               Create my account
             </button>
@@ -144,10 +158,10 @@ export default function RegisterPage() {
                  {...register("agreeTerms", { required: true })}
                  id="agree"
                  type="checkbox" 
-                 className="mt-1 h-4 w-4 rounded border-gray-200 text-[#1877F2] focus:ring-[#1877F2]/20 cursor-pointer" 
+                 className="mt-1 h-4 w-4 rounded border-gray-200 text-primary focus:ring-primary/20 cursor-pointer" 
                />
                <label htmlFor="agree" className="text-[12px] font-medium text-gray-500 leading-tight">
-                 I have read and accept the <Link href="#"><span className="text-[#1877F2] hover:underline">Terms and Conditions</span></Link> and <Link href="#"><span className="text-[#1877F2] hover:underline">Privacy Policy</span></Link>
+                 I have read and accept the <Link href="#"><span className="text-primary hover:underline">Terms and Conditions</span></Link> and <Link href="#"><span className="text-primary hover:underline">Privacy Policy</span></Link>
                </label>
              </div>
 
@@ -155,7 +169,7 @@ export default function RegisterPage() {
                <p className="text-xs font-medium text-gray-400">
                   Already have an account?{" "}
                   <Link href="/signin">
-                     <span className="text-[#1877F2] hover:underline cursor-pointer">Sign in</span>
+                     <span className="text-primary hover:underline cursor-pointer">Sign in</span>
                   </Link>
                </p>
              </div>

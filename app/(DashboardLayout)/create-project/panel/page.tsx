@@ -35,7 +35,7 @@ export default function PanelSchedulesPage() {
     >
       {/* Top Action Button */}
       <div className="flex justify-start">
-        <button className="flex items-center gap-2 rounded-xl bg-[#1877F2] px-6 py-3 text-sm font-bold text-white shadow-[0_8px_16px_-4px_rgba(24,119,242,0.4)] transition-all hover:bg-blue-600 active:scale-95">
+        <button className="flex items-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-bold text-white shadow-lg shadow-primary/20 transition-all hover:opacity-90 active:scale-95">
           <Plus className="h-4 w-4" />
           Add panel
         </button>
@@ -58,23 +58,23 @@ export default function PanelSchedulesPage() {
         {/* Checkbox Options Section */}
         <div className="flex flex-wrap items-center gap-8 p-6 border-b border-gray-100 dark:border-gray-800">
           <label className="flex items-center gap-3 cursor-pointer group">
-            <div className="relative flex items-center justify-center h-5 w-5 rounded border border-gray-300 dark:border-gray-700 transition-all group-hover:border-[#1877F2]">
-              <input type="checkbox" className="peer opacity-0 absolute inset-0" />
-              <div className="h-2.5 w-2.5 rounded-sm bg-[#1877F2] opacity-0 peer-checked:opacity-100 transition-opacity" />
+            <div className="relative inline-flex items-center h-5 w-10 shrink-0 rounded-[4px] bg-[#B9D6D1] dark:bg-gray-800 transition-colors">
+              <input type="checkbox" className="peer opacity-0 absolute inset-0 z-10 cursor-pointer" />
+              <div className="h-6 w-5 rounded-[4px] bg-primary shadow-md transition-transform duration-200 peer-checked:translate-x-5" />
             </div>
             <span className="text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">Service Disconnect</span>
           </label>
           <label className="flex items-center gap-3 cursor-pointer group">
-            <div className="relative flex items-center justify-center h-5 w-5 rounded border border-gray-300 dark:border-gray-700 transition-all group-hover:border-[#1877F2]">
-              <input type="checkbox" className="peer opacity-0 absolute inset-0" defaultChecked />
-              <div className="h-2.5 w-2.5 rounded-sm bg-[#1877F2] opacity-0 peer-checked:opacity-100 transition-opacity" />
+            <div className="relative inline-flex items-center h-5 w-10 shrink-0 rounded-[4px] bg-[#B9D6D1] dark:bg-gray-800 transition-colors">
+              <input type="checkbox" className="peer opacity-0 absolute inset-0 z-10 cursor-pointer" defaultChecked />
+              <div className="h-6 w-5 rounded-[4px] bg-primary shadow-md transition-transform duration-200 peer-checked:translate-x-5" />
             </div>
             <span className="text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">Main Lug</span>
           </label>
           <label className="flex items-center gap-3 cursor-pointer group">
-            <div className="relative flex items-center justify-center h-5 w-5 rounded border border-gray-300 dark:border-gray-700 transition-all group-hover:border-[#1877F2]">
-              <input type="checkbox" className="peer opacity-0 absolute inset-0" />
-              <div className="h-2.5 w-2.5 rounded-sm bg-[#1877F2] opacity-0 peer-checked:opacity-100 transition-opacity" />
+            <div className="relative inline-flex items-center h-5 w-10 shrink-0 rounded-[4px] bg-[#B9D6D1] dark:bg-gray-800 transition-colors">
+              <input type="checkbox" className="peer opacity-0 absolute inset-0 z-10 cursor-pointer" />
+              <div className="h-6 w-5 rounded-[4px] bg-primary shadow-md transition-transform duration-200 peer-checked:translate-x-5" />
             </div>
             <span className="text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">Feed Thru</span>
           </label>
@@ -171,7 +171,7 @@ export default function PanelSchedulesPage() {
         >
           Back
         </button>
-        <button className="w-full md:w-auto min-w-[140px] rounded-xl bg-[#1877F2] px-10 py-3.5 text-sm font-bold text-white shadow-[0_10px_15px_-3px_rgba(24,119,242,0.3)] hover:bg-blue-600 transition-all active:scale-95">
+        <button className="w-full md:w-auto min-w-[140px] rounded-xl bg-primary px-10 py-3.5 text-sm font-bold text-white shadow-lg shadow-primary/20 hover:opacity-90 transition-all active:scale-95">
           Save Project
         </button>
       </div>

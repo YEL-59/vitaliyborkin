@@ -1,322 +1,231 @@
 "use client";
 
-import React from "react";
-import { Zap, Flame, Plus, MoreVertical } from "lucide-react";
-import { motion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
+import { motion, Variants } from "framer-motion";
+import LogoImg from "@/assets/images/logo.png";
+import {
+  CheckCircle2,
+  Calculator,
+  FileText,
+  ShieldCheck,
+  ArrowRight,
+} from "lucide-react";
+import heroBg from "@/assets/images/hero-bg.png";
+import ScrambleText from "@/components/ScrambleText";
+import GlowCursor from "@/components/GlowCursor";
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
+export default function LandingPage() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { staggerChildren: 0.2, duration: 1 } },
+  };
+
+  const itemVariants: Variants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
     },
-  },
-};
+  };
 
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-  },
-};
+  const platformFeatures = [
+    {
+      icon: <Calculator className="h-6 w-6 text-primary" />,
+      title: "NEC-Compliant Calculations",
+      description:
+        "Standard and Optional methods per NEC 2020/2023 with demand factors applied automatically.",
+    },
+    {
+      icon: <FileText className="h-6 w-6 text-primary" />,
+      title: "Permit-Ready Documents",
+      description:
+        "One-line diagrams, panel schedules, and load summaries formatted exactly for plan check.",
+    },
+    {
+      icon: <ShieldCheck className="h-6 w-6 text-primary" />,
+      title: "AHJ Presets Built-In",
+      description:
+        "Jurisdiction-specific amendments pre-loaded so you never miss a local requirement.",
+    },
+  ];
 
-const tableRowVariants = {
-  hidden: { opacity: 0, x: -10 },
-  visible: {
-    opacity: 1,
-    x: 0,
-  },
-};
-
-const dashboardStats = [
-  {
-    icon: <Zap className="h-6 w-6 text-white" />,
-    value: "216",
-    label: "In Progress",
-    trend: "+8.3%",
-    chart: "line",
-    color: "bg-[#1e1e76] dark:bg-blue-900/40",
-  },
-  {
-    icon: <Flame className="h-6 w-6 text-white" />,
-    value: "3,482",
-    label: "Completed Project",
-    trend: "+15.7%",
-    chart: "donut",
-    color: "bg-[#1e1e76] dark:bg-blue-900/40",
-  },
-];
-
-const projects = [
-  {
-    id: "PRJ-2023-014",
-    name: "Smith Residence",
-    location: "123 Elm St, Austin, TX",
-    voltage: "120/240V",
-    phase: "1Φ 3W",
-    nec: "2020",
-    lastModified: "Oct 24, 2023",
-    status: "In Progress",
-  },
-  {
-    id: "PRJ-2023-011",
-    name: "Tech Park Bldg B",
-    location: "4500 Tech Blvd, SJ, CA",
-    voltage: "480V/277V",
-    phase: "3Φ 4W",
-    nec: "2023",
-    lastModified: "Oct 22, 2023",
-    status: "Complete",
-  },
-  {
-    id: "PRJ-2023-009",
-    name: "Riverside Medical Clinic",
-    location: "88 River Rd, FL",
-    voltage: "208V/120V",
-    phase: "3Φ 4W",
-    nec: "2020",
-    lastModified: "Oct 15, 2023",
-    status: "In Progress",
-  },
-  {
-    id: "PRJ-2023-004",
-    name: "Oakwood Apartments",
-    location: "302 Pine St, NY",
-    voltage: "120/240V",
-    phase: "1Φ 3W",
-    nec: "2017",
-    lastModified: "Sep 30, 2023",
-    status: "Archived",
-  },
-];
-
-export default function DashboardPage() {
   return (
-    <motion.div
-      initial="hidden"
-      animate="visible"
-      variants={containerVariants}
-      className="container mx-auto px-4 py-8 md:px-8 transition-colors duration-300"
-    >
-      {/* Dashboard Header */}
-      <motion.h1
-        variants={itemVariants}
-        className="mb-6 text-2xl font-bold text-gray-900 dark:text-white"
-      >
-        Dashboard
-      </motion.h1>
-
-      {/* Stats Grid */}
-      <div className="mb-10 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {dashboardStats.map((stat, idx) => (
-          <motion.div
-            key={idx}
-            variants={itemVariants}
-            whileHover={{ y: -5, transition: { duration: 0.2 } }}
-            className={`${stat.color} relative overflow-hidden rounded-2xl p-6 text-white h-[180px] flex flex-col justify-between shadow-lg shadow-indigo-900/10 dark:shadow-none border border-transparent dark:border-blue-900/20`}
-          >
-            <div className="flex items-center justify-between">
-              <motion.div
-                initial={{ scale: 0.8 }}
-                animate={{ scale: 1 }}
-                transition={{ type: "spring", stiffness: 200 }}
-                className="rounded-lg bg-white/10 p-2"
-              >
-                {stat.icon}
-              </motion.div>
-              <span className="text-sm font-medium text-[#FACC15]">
-                {stat.trend}
-              </span>
-            </div>
-
-            <div className="flex items-end justify-between">
-              <div>
-                <motion.p
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  className="text-4xl font-bold"
-                >
-                  {stat.value}
-                </motion.p>
-                <p className="text-sm font-light opacity-80">{stat.label}</p>
-              </div>
-
-              <div className="h-16 w-24">
-                {stat.chart === "line" ? (
-                  <svg className="h-full w-full" viewBox="0 0 100 40">
-                    <motion.path
-                      initial={{ pathLength: 0 }}
-                      animate={{ pathLength: 1 }}
-                      transition={{ duration: 1.5, ease: "easeInOut" }}
-                      d="M2,38 C5,38 10,10 22,10 C32,10 38,28 45,28 C52,28 58,38 65,38 C72,38 78,10 88,10 C92,10 98,20 100,15"
-                      fill="none"
-                      stroke="#A855F7"
-                      strokeWidth="3"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                    <path
-                      d="M2,38 C5,38 10,10 22,10 C32,10 38,28 45,28 C52,28 58,38 65,38 C72,38 78,10 88,10 C92,10 98,20 100,15 V40 H2 Z"
-                      fill="url(#gradient)"
-                      opacity="0.2"
-                    />
-
-
-                    <defs>
-                      <linearGradient
-                        id="gradient"
-                        x1="0%"
-                        y1="0%"
-                        x2="0%"
-                        y2="100%"
-                      >
-                        <stop offset="0%" stopColor="#A855F7" />
-                        <stop
-                          offset="100%"
-                          stopColor="#A855F7"
-                          stopOpacity="0"
-                        />
-                      </linearGradient>
-                    </defs>
-                  </svg>
-                ) : (
-                  <svg className="h-full w-full" viewBox="0 0 40 40">
-                    <circle
-                      cx="20"
-                      cy="20"
-                      r="16"
-                      fill="none"
-                      stroke="rgba(255,255,255,0.1)"
-                      strokeWidth="6"
-                    />
-                    <motion.circle
-                      initial={{ pathLength: 0 }}
-                      animate={{ pathLength: 0.75 }}
-                      transition={{ duration: 1.5, ease: "easeInOut" }}
-                      cx="20"
-                      cy="20"
-                      r="16"
-                      fill="none"
-                      stroke="#FACC15"
-                      strokeWidth="6"
-                      strokeDasharray="100 100"
-                      strokeLinecap="round"
-                    />
-
-                  </svg>
-                )}
-              </div>
-            </div>
-          </motion.div>
-        ))}
-      </div>
-
-      <div className="mb-6 flex items-center justify-between">
-        <motion.h2
-          variants={itemVariants}
-          className="text-2xl font-bold text-gray-900 dark:text-white"
-        >
-          Projects
-        </motion.h2>
-        <Link href="/create-project">
-          <motion.button
-            variants={itemVariants}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="flex items-center gap-2 rounded-[12px] bg-[#1877F2] shadow-[0_10px_15px_-3px_rgba(30,30,118,0.20),0_4px_6px_-4px_rgba(30,30,118,0.20)] dark:shadow-none px-5 py-3 text-sm font-semibold text-white transition-all cursor-pointer select-none"
-          >
-            <Plus className="h-5 w-5" />
-            Create New Project
-          </motion.button>
-        </Link>
-
-      </div>
-
-      <motion.div
-        variants={itemVariants}
-        className="overflow-hidden rounded-xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900 shadow-sm transition-all"
-      >
-        <div className="overflow-x-auto scrollbar-hide w-full">
-          <table className="w-full text-left border-collapse table-auto md:table-fixed">
-
-            <thead className="bg-[#1877F2] text-white">
-              <tr>
-                <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider w-[25%] whitespace-nowrap">Project Name</th>
-                <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider w-[20%] whitespace-nowrap">Location</th>
-                <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider w-[15%] whitespace-nowrap">System Voltage</th>
-                <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider w-[10%] whitespace-nowrap">NEC</th>
-                <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider w-[15%] whitespace-nowrap">Last Modified</th>
-                <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider w-[10%] whitespace-nowrap">Status</th>
-                <th className="px-6 py-4 w-[5%]"></th>
-              </tr>
-            </thead>
-
-            <motion.tbody
-              variants={containerVariants}
-              className="divide-y divide-gray-50 dark:divide-gray-800"
-            >
-              {projects.map((project, idx) => (
-                <motion.tr
-                  key={idx}
-                  variants={tableRowVariants}
-                  whileHover={{ backgroundColor: "rgba(59, 130, 246, 0.05)" }}
-                  className="group transition-colors cursor-default"
-                >
-                  <td className="px-6 py-5">
-                    <div className="font-medium text-gray-900 dark:text-white leading-tight">
-                      {project.name}
-                    </div>
-                    <div className="text-[10px] uppercase font-bold text-gray-400 dark:text-gray-500 mt-1">
-                      {project.id}
-                    </div>
-                  </td>
-                  <td className="px-6 py-5 text-sm text-gray-500 dark:text-gray-400 font-medium">
-                    {project.location}
-                  </td>
-                  <td className="px-6 py-5">
-                    <div className="font-semibold text-gray-900 dark:text-white text-sm leading-tight">
-                      {project.voltage}
-                    </div>
-                    <div className="text-[10px] font-bold text-gray-400 dark:text-gray-500 mt-0.5">
-                      {project.phase}
-                    </div>
-                  </td>
-                  <td className="px-6 py-5 text-sm text-gray-500 dark:text-gray-400 font-medium">
-                    {project.nec}
-                  </td>
-                  <td className="px-6 py-5 text-sm text-gray-500 dark:text-gray-400 font-medium">
-                    {project.lastModified}
-                  </td>
-                  <td className="px-6 py-5">
-                    <span
-                      className={`inline-flex items-center rounded-full px-3 py-1 text-[11px] font-bold shadow-sm ${
-                        project.status === "In Progress"
-                          ? "bg-[#EFF6FF] dark:bg-blue-900/40 text-[#3B82F6]"
-                          : project.status === "Complete"
-                            ? "bg-[#F0FDF4] dark:bg-green-900/40 text-[#22C55E]"
-                            : "bg-[#F3F4F6] dark:bg-gray-800 text-[#6B7280] dark:text-gray-400"
-                      }`}
-                    >
-                      {project.status}
-                    </span>
-                  </td>
-                  <td className="px-6 py-5">
-                    <motion.button
-                      whileHover={{ scale: 1.2, color: "#111827" }}
-                      className="text-gray-400 dark:text-gray-500 cursor-pointer p-1 rounded-md transition-all"
-                    >
-                      <MoreVertical className="h-5 w-5" />
-                    </motion.button>
-                  </td>
-                </motion.tr>
-              ))}
-            </motion.tbody>
-          </table>
+    <div className="relative min-h-screen bg-black font-roboto select-none overflow-x-hidden">
+      <GlowCursor />
+      {/* Hero Section */}
+      <section className="relative h-screen w-full flex flex-col justify-center overflow-hidden">
+        {/* Background Image / Hero Video */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src={heroBg}
+            alt="Professional Electrician"
+            fill
+            priority
+            className="object-cover opacity-60 brightness-[0.4]"
+          />
+          <div className="absolute inset-0 bg-linear-to-t from-black via-black/40 to-transparent" />
         </div>
-      </motion.div>
-    </motion.div>
+
+        {/* Main Content */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="relative z-10 container mx-auto px-6"
+        >
+          <div className="max-w-4xl">
+            <motion.p
+              variants={itemVariants}
+              className="text-[14px] font-black uppercase tracking-[0.4em] text-primary mb-4"
+            >
+              NEC 2020 · 2023 COMPLIANT
+            </motion.p>
+
+            <motion.h1
+              variants={itemVariants}
+              className="text-6xl md:text-9xl font-bold  text-white leading-[0.95] tracking-tighter mb-12"
+            >
+              <ScrambleText text="Electrical Load" duration={1.5} delay={0.2} /> <br />
+              <ScrambleText text="Calculations," duration={1.5} delay={0.2} /> <br />
+              <ScrambleText text="Done Right." duration={1.5} delay={0.2} className="text-primary" />
+            </motion.h1>
+
+            <motion.div
+              variants={itemVariants}
+              className="flex flex-wrap flex-col gap-4 mb-16"
+            >
+              <Link href="/signin">
+                <button className="group cursor-pointer flex items-center gap-4 text-white  hover:text-primary transition-all font-bold text-lg tracking-widest uppercase">
+                  <div className="h-0.5 w-6 bg-white group-hover:bg-primary transition-all" />
+                  Start Your First Project
+                </button>
+              </Link>
+              <button className="group flex items-center gap-4 text-white opacity-60 hover:text-white/70 transition-all font-bold text-lg tracking-widest uppercase">
+                <div className="h-0.5 w-6 bg-white/50" />
+                See How It Works
+              </button>
+            </motion.div>
+          </div>
+        </motion.div>
+
+        {/* Right Corner Features */}
+        <div className="absolute bottom-10 right-10 z-20 hidden md:flex flex-col gap-3">
+          {["PERMIT-READY PDFS", "AHJ PRESETS", "PANEL SCHEDULING"].map(
+            (feature, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 1 + idx * 0.1, duration: 0.8 }}
+                className="flex items-center gap-3 group cursor-default justify-end"
+              >
+                <CheckCircle2 className="h-4 w-4 text-primary transition-transform group-hover:scale-125" />
+                <span className="text-[11px] font-black tracking-[0.2em] text-white/60 group-hover:text-white uppercase transition-colors">
+                  {feature}
+                </span>
+              </motion.div>
+            ),
+          )}
+        </div>
+      </section>
+
+      {/* Platform Section */}
+      <section className="relative z-10 w-full py-32 bg-black">
+        <div className="container mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1 }}
+            className="mb-24"
+          >
+            <p className="text-[12px] font-black uppercase tracking-[0.5em] text-gray-500 mb-6">
+              PLATFORM
+            </p>
+            <h2 className="text-4xl md:text-6xl font-black text-white leading-tight tracking-tight max-w-2xl">
+              Everything you need to submit.
+            </h2>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3">
+            {platformFeatures.map((feature, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: idx * 0.2 }}
+                className={`group px-8 md:px-12 py-8 ${idx !== 2 ? "md:border-r border-white/10" : ""}`}
+              >
+                <div className="mb-8 flex h-12 w-12 items-center justify-center rounded-xl bg-teal-400/10 transition-all group-hover:bg-teal-400/20">
+                  {feature.icon}
+                </div>
+                <h3 className="mb-4 text-xl font-black text-white tracking-tight">
+                  {feature.title}
+                </h3>
+                <p className="text-sm font-medium leading-relaxed text-white/40 group-hover:text-white/60 transition-colors">
+                  {feature.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+      {/* CTA Section */}
+      <section className="relative z-10 w-full py-32 bg-black border-t border-white/5">
+        <div className="container mx-auto px-6 h-full flex flex-col md:flex-row items-center justify-between gap-12">
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1 }}
+          >
+            <p className="text-[12px] font-black uppercase tracking-[0.5em] text-gray-500 mb-6">
+              GET STARTED
+            </p>
+            <h2 className="text-4xl md:text-7xl font-black text-white leading-tight tracking-tighter">
+              Ready to submit <br /> faster?
+            </h2>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1 }}
+          >
+            <Link href="/register">
+              <button className="group flex items-center gap-4 text-white hover:text-primary transition-all font-black text-xl tracking-[0.2em] uppercase">
+                Start Free
+                <ArrowRight className="h-6 w-6 text-primary group-hover:translate-x-2 transition-transform" />
+              </button>
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="relative z-10 w-full py-12 bg-black border-t border-white/5">
+        <div className="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-8">
+          <div className="text-[10px] font-black tracking-[0.3em] text-white/40 uppercase">
+            DEMANDEX
+          </div>
+          <div className="text-[10px] font-bold tracking-widest text-white/20 uppercase text-center">
+            © 2026 DemandEX. Professional Electrical Load Calculations.
+          </div>
+          <Link
+            href="/dashboard"
+            className="text-[10px] font-black tracking-[0.3em] text-white/40 hover:text-teal-400 transition-colors uppercase flex items-center gap-2"
+          >
+            Dashboard
+            <ArrowRight className="h-3 w-3" />
+          </Link>
+        </div>
+      </footer>
+    </div>
   );
 }

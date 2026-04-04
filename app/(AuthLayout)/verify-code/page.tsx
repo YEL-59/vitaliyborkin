@@ -63,16 +63,30 @@ export default function VerifyCodePage() {
             priority
             className="object-cover scale-110"
           />
-          <div className="absolute inset-0 bg-[#1877F2]/10 mix-blend-multiply" />
+          <div className="absolute inset-0 bg-primary/10 mix-blend-multiply" />
         </div>
       </div>
 
       {/* Right Panel: OTP Form Area */}
       <div className="flex flex-1 flex-col justify-center px-12 py-10 lg:pl-10 text-center">
         {/* Logo */}
-        <div className="mb-6 flex justify-center">
-          <Image src={LogoImg} alt="Logo" width={110} height={90} />
-        </div>
+           <Link href="/" className="flex items-center justify-center gap-2 group shrink-0 mb-8">
+          <div className="flex items-center gap-2">
+            <Image 
+              src={LogoImg} 
+              alt="Logo" 
+              width={40} 
+              height={40} 
+              className="md:w-[50px] md:h-[50px] w-[32px] h-[32px] object-contain"
+            />
+            <div className="flex flex-col">
+              <p className="text-lg md:text-xl font-bold tracking-tight text-primary leading-tight">DEMANDEX</p>
+              <p className="text-[8px] md:text-xs font-medium text-primary">
+                Design · Calculate · Submit
+              </p>
+            </div>
+          </div>
+        </Link>
 
         {/* Heading */}
         <div className="mb-8 flex items-center justify-between pb-2 border-gray-100">
@@ -98,14 +112,14 @@ export default function VerifyCodePage() {
                   value={digit}
                   onChange={(e) => handleChange(idx, e.target.value)}
                   onKeyDown={(e) => handleKeyDown(idx, e)}
-                  className="h-9 w-7 sm:h-10 sm:w-8 text-center text-sm font-bold text-[#1877F2] rounded-md border border-gray-200 focus:border-[#1877F2] focus:ring-0 outline-none transition-all"
+                  className="h-9 w-7 sm:h-10 sm:w-8 text-center text-sm font-bold text-primary rounded-md border border-gray-200 focus:border-primary focus:ring-0 outline-none transition-all"
                 />
               ))}
            </div>
 
            <div className="text-center space-y-1">
               <p className="text-[12px] font-medium text-gray-400">
-                 Didn't receive a code? <button className="text-[#1877F2] font-semibold hover:underline">Resend</button>
+                 Didn't receive a code? <button className="text-primary font-semibold hover:underline">Resend</button>
               </p>
               <p className="text-[12px] font-bold text-gray-500">
                 {Math.floor(timer / 60)}:{(timer % 60).toString().padStart(2, '0')} min
@@ -117,9 +131,9 @@ export default function VerifyCodePage() {
         <button 
           type="button"
           disabled={!isComplete}
-          className={`w-full rounded-lg bg-[#1877F2] py-3 text-sm font-semibold text-white shadow-md transition-all select-none ${
+          className={`w-full rounded-lg bg-primary py-3 text-sm font-semibold text-white shadow-md transition-all select-none ${
               isComplete
-              ? "hover:bg-blue-600"
+              ? "hover:opacity-90"
               : "opacity-80 cursor-not-allowed"
           }`}
         >
@@ -128,7 +142,7 @@ export default function VerifyCodePage() {
         
         <div className="mt-6 text-center">
            <p className="text-xs font-medium text-gray-500">
-             Back to <Link href="/signin"><span className="text-[#1877F2] font-semibold hover:underline">Sign in</span></Link>
+             Back to <Link href="/signin"><span className="text-primary font-semibold hover:underline">Sign in</span></Link>
            </p>
         </div>
       </div>
