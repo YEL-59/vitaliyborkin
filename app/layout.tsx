@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
+import { ThemeProvider } from "@/components/providers/ThemeProvider";
 
 const roboto = Roboto({
   variable: "--font-roboto",
@@ -25,7 +26,14 @@ export default function RootLayout({
       className={`${roboto.variable} h-full antialiased`}
     >
       <body className="font-roboto min-h-full flex flex-col selection:bg-blue-100 selection:text-blue-900">
-        <SmoothScroll>{children}</SmoothScroll>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <SmoothScroll>{children}</SmoothScroll>
+        </ThemeProvider>
       </body>
     </html>
   );
