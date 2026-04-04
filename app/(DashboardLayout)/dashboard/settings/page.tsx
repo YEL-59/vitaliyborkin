@@ -38,7 +38,7 @@ export default function SettingsPage() {
   if (!mounted) return null;
 
   return (
-    <div className="max-w-6xl mx-auto space-y-8 pb-20 pt-4 px-4 sm:px-6 lg:px-8 transition-colors duration-300">
+    <div className="container mx-auto space-y-8 pb-20 pt-4 px-4 sm:px-6 lg:px-8 transition-colors duration-300">
       {/* Page Header */}
       <div className="flex flex-col gap-1">
         <h1 className="text-3xl font-black text-gray-900 dark:text-white tracking-tight">System Settings</h1>

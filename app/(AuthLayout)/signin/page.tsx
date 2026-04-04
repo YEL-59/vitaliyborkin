@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Zap, Mail, Lock, LogIn, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useForm, SubmitHandler } from "react-hook-form";
 import AuthImage from "@/assets/images/authentication-image.png";
 import LogoImg from "@/assets/images/logo.png"
@@ -23,9 +24,12 @@ export default function SignInPage() {
     mode: "onChange"
   });
 
+  const router = useRouter();
+
   const onSubmit: SubmitHandler<SignInInputs> = (data) => {
     console.log("Sign In Data:", data);
-    // Redirect logic would go here
+    // Successful login: Redirect to dashboard
+    router.push("/dashboard");
   };
 
   return (
@@ -57,13 +61,28 @@ export default function SignInPage() {
       {/* Right Panel: Form Area */}
       <div className="flex flex-1 flex-col justify-center px-16 py-12 lg:pl-10">
         {/* Logo and Brand */}
-        <Link href="/" className="mb-8 flex items-center justify-center gap-2">
-          <Image src={LogoImg} alt="Logo" width={120} height={100} />
+          <Link href="/" className="flex items-center justify-center gap-2 group shrink-0 mb-8">
+          <div className="flex items-center gap-2">
+            <Image 
+              src={LogoImg} 
+              alt="Logo" 
+              width={40} 
+              height={40} 
+              className="md:w-[50px] md:h-[50px] w-[32px] h-[32px] object-contain"
+            />
+            <div className="flex flex-col">
+              <p className="text-lg md:text-xl font-bold tracking-tight text-primary leading-tight">DEMANDEX</p>
+              <p className="text-[8px] md:text-xs font-medium text-primary">
+                Design · Calculate · Submit
+              </p>
+            </div>
+          </div>
         </Link>
+
 
         {/* Heading */}
         <div className="mb-8 text-center">
-          <h1 className="text-[32px] font-bold text-[#1877F2] mb-1">Welcome back</h1>
+          <h1 className="text-[32px] font-bold text-primary mb-1">Welcome back</h1>
           <p className="text-sm font-medium text-gray-500">Sign in to your account to continue</p>
         </div>
 
@@ -80,7 +99,7 @@ export default function SignInPage() {
                 {...register("email", { required: "Required" })}
                 type="text"
                 placeholder="Enter email your address"
-                className="w-full rounded-lg mt-2 bg-white py-3.5 pl-12 pr-4 text-sm font-medium text-gray-700 border border-gray-200 focus:border-[#1877F2] focus:ring-0 transition-all outline-none"
+                className="w-full rounded-lg mt-2 bg-white py-3.5 pl-12 pr-4 text-sm font-medium text-gray-700 border border-gray-200 focus:border-primary focus:ring-0 transition-all outline-none"
               />
             </div>
           </div>
@@ -96,13 +115,13 @@ export default function SignInPage() {
                 {...register("password", { required: "Required" })}
                 type="password"
                 placeholder="Enter your password"
-                className="w-full rounded-lg mt-2 bg-white py-3.5 pl-12 pr-4 text-sm font-medium text-gray-700 border border-gray-200 focus:border-[#1877F2] focus:ring-0 transition-all outline-none"
+                className="w-full rounded-lg mt-2 bg-white py-3.5 pl-12 pr-4 text-sm font-medium text-gray-700 border border-gray-200 focus:border-primary focus:ring-0 transition-all outline-none"
               />
             </div>
             
             <div className="flex justify-end pt-0.5">
               <Link href="/forgot-password">
-                <span className="text-sm cursor-pointer font-semibold text-[#1877F2] hover:underline">Forgot Password?</span>
+                <span className="text-sm cursor-pointer font-semibold text-primary hover:underline">Forgot Password?</span>
               </Link>
             </div>
           </div>
@@ -111,7 +130,7 @@ export default function SignInPage() {
           <div className="space-y-4 pt-4">
             <button 
               type="submit"
-              className="w-full rounded-lg bg-[#1877F2] shadow-[0_10px_15px_-3px_rgba(30,30,118,0.2),0_4px_6px_-4px_rgba(30,30,118,0.2)] py-3.5 text-base font-semibold text-white cursor-pointer  hover:bg-[#166fe5] transition-all active:scale-[0.99] select-none"
+              className="w-full rounded-lg bg-primary shadow-lg py-3.5 text-base font-semibold text-white cursor-pointer hover:opacity-90 transition-all active:scale-[0.99] select-none"
             >
               Sign in
             </button>
@@ -119,7 +138,7 @@ export default function SignInPage() {
             <Link href="/register" className="block">
               <button 
                 type="button"
-                className="w-full rounded-lg cursor-pointer border border-gray-200 bg-white py-3.5 text-base font-semibold text-[#1877F2] hover:bg-gray-50 transition-all active:scale-[0.99]"
+                className="w-full rounded-lg cursor-pointer border border-gray-200 bg-white py-3.5 text-base font-semibold text-primary hover:bg-gray-50 transition-all active:scale-[0.99]"
               >
                 Create an account
               </button>

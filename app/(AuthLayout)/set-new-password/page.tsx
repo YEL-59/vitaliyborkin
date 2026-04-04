@@ -55,16 +55,30 @@ export default function SetNewPasswordPage() {
             priority
             className="object-cover scale-110"
           />
-          <div className="absolute inset-0 bg-[#1877F2]/10 mix-blend-multiply" />
+          <div className="absolute inset-0 bg-primary/10 mix-blend-multiply" />
         </div>
       </div>
 
       {/* Right Panel: Form Area */}
       <div className="flex flex-1 flex-col justify-center px-16 py-10 lg:pl-10 text-center lg:text-left">
         {/* Logo */}
-        <div className="mb-6 flex justify-center">
-          <Image src={LogoImg} alt="Logo" width={110} height={90} />
-        </div>
+        <Link href="/" className="flex items-center justify-center gap-2 group shrink-0 mb-8">
+          <div className="flex items-center gap-2">
+            <Image 
+              src={LogoImg} 
+              alt="Logo" 
+              width={40} 
+              height={40} 
+              className="md:w-[50px] md:h-[50px] w-[32px] h-[32px] object-contain"
+            />
+            <div className="flex flex-col">
+              <p className="text-lg md:text-xl font-bold tracking-tight text-primary leading-tight">DEMANDEX</p>
+              <p className="text-[8px] md:text-xs font-medium text-primary">
+                Design · Calculate · Submit
+              </p>
+            </div>
+          </div>
+        </Link>
 
         {/* Heading */}
         <div className="mb-8 flex items-center justify-between pb-2 border-gray-100">
@@ -78,16 +92,16 @@ export default function SetNewPasswordPage() {
            <motion.div 
              initial={{ opacity: 0, scale: 0.9 }}
              animate={{ opacity: 1, scale: 1 }}
-             className="rounded-2xl bg-blue-50/50 border border-blue-100 p-8 text-center"
+             className="rounded-2xl bg-primary/5 border border-primary/10 p-8 text-center"
            >
-              <div className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-blue-100 text-[#1877F2] mb-4 shadow-sm">
+              <div className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-primary/10 text-primary mb-4 shadow-sm">
                  <CheckCircle2 className="h-7 w-7" />
               </div>
               <h3 className="text-lg font-bold text-gray-900 mb-2">Password reset!</h3>
               <p className="text-xs font-medium text-gray-500 mb-8">You can now sign in with your brand new credentials.</p>
               
               <Link href="/signin">
-                <button className="w-full rounded-lg bg-[#1877F2] py-3 text-sm font-semibold text-white shadow-md hover:bg-blue-600 transition-all select-none">
+                <button className="w-full rounded-lg bg-primary py-3 text-sm font-semibold text-white shadow-md hover:opacity-90 transition-all select-none">
                    Go to Sign In
                 </button>
               </Link>
@@ -103,7 +117,7 @@ export default function SetNewPasswordPage() {
                 })}
                 type={showPass ? "text" : "password"}
                 placeholder="Set new password"
-                className="w-full rounded-md bg-white px-4 py-3 text-sm font-medium text-gray-700 border border-gray-200 outline-none focus:border-[#1877F2] transition-all pr-12"
+                className="w-full rounded-md bg-white px-4 py-3 text-sm font-medium text-gray-700 border border-gray-200 outline-none focus:border-primary transition-all pr-12"
               />
               <button 
                   type="button" 
@@ -123,7 +137,7 @@ export default function SetNewPasswordPage() {
                 })}
                 type={showConfirm ? "text" : "password"}
                 placeholder="Confirm Password"
-                className="w-full rounded-md bg-white px-4 py-3 text-sm font-medium text-gray-700 border border-gray-200 outline-none focus:border-[#1877F2] transition-all pr-12"
+                className="w-full rounded-md bg-white px-4 py-3 text-sm font-medium text-gray-700 border border-gray-200 outline-none focus:border-primary transition-all pr-12"
               />
               <button 
                   type="button" 
@@ -138,7 +152,7 @@ export default function SetNewPasswordPage() {
             <div className="pt-2">
               <button 
                 type="submit"
-                className="w-full rounded-lg bg-[#1877F2] py-3 text-sm font-semibold text-white shadow-md hover:bg-blue-600 transition-all select-none"
+                className="w-full rounded-lg bg-primary py-3 text-sm font-semibold text-white shadow-md hover:opacity-90 transition-all select-none"
               >
                 Confirm
               </button>

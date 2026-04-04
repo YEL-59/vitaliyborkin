@@ -32,18 +32,18 @@ export default function LoadCalculationsPage() {
     >
       {/* Standard/Optional Toggle */}
       <div className="flex items-center gap-3">
-        <span className={`text-sm font-bold ${isStandard ? "text-[#1877F2]" : "text-gray-400 dark:text-gray-500"}`}>Standard</span>
+        <span className={`text-sm font-bold ${isStandard ? "text-primary" : "text-gray-400 dark:text-gray-500"}`}>Standard</span>
         <button
           type="button"
           onClick={() => setIsStandard(!isStandard)}
-          className="relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 focus:outline-none bg-blue-100 dark:bg-gray-800"
+          className="relative inline-flex items-center h-5 w-10 shrink-0 cursor-pointer rounded-[4px] transition-colors duration-200 focus:outline-none bg-[#B9D6D1] dark:bg-gray-800"
         >
           <span
-            className={`inline-block h-5 w-5 transform rounded-full bg-[#1877F2] shadow ring-0 transition duration-200 ease-in-out ${isStandard ? "translate-x-0" : "translate-x-5"
+            className={`inline-block h-6 w-5 transform rounded-[4px] bg-primary shadow-md ring-0 transition duration-200 ease-in-out ${isStandard ? "translate-x-0" : "translate-x-5"
               }`}
           />
         </button>
-        <span className={`text-sm font-bold ${!isStandard ? "text-[#1877F2]" : "text-gray-400 dark:text-gray-500"}`}>Optional</span>
+        <span className={`text-sm font-bold ${!isStandard ? "text-primary" : "text-gray-400 dark:text-gray-500"}`}>Optional</span>
       </div>
 
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
@@ -78,7 +78,7 @@ export default function LoadCalculationsPage() {
                         <input
                           type="text"
                           defaultValue={row.qty}
-                          className="w-16 rounded-lg bg-[#F8F9FA] dark:bg-gray-800 px-3 py-2 text-center text-sm font-bold text-gray-700 dark:text-white outline-none border border-gray-100 dark:border-gray-700 focus:border-[#1877F2]/30"
+                          className="w-16 rounded-lg bg-[#F8F9FA] dark:bg-gray-800 px-3 py-2 text-center text-sm font-bold text-gray-700 dark:text-white outline-none border border-gray-100 dark:border-gray-700 focus:border-primary/30"
                         />
                       </td>
                       <td className="py-5 text-center text-sm font-medium text-gray-400">{row.va}</td>
@@ -132,7 +132,7 @@ export default function LoadCalculationsPage() {
               <div className="mt-4 text-right">
                 <span className="text-xs font-bold text-gray-900 dark:text-white">Total: 0 VA</span>
               </div>
-              <button type="button" className="mt-4 w-full flex items-center justify-center gap-2 rounded-xl bg-[#1877F2] py-3 text-sm font-bold text-white shadow-md hover:bg-blue-600 transition-all">
+              <button type="button" className="mt-4 w-full flex items-center justify-center gap-2 rounded-xl bg-primary py-3 text-sm font-bold text-white shadow-md hover:opacity-90 transition-all">
                 <Plus className="h-4 w-4" />
                 Add equipment
               </button>
@@ -164,7 +164,7 @@ export default function LoadCalculationsPage() {
               <div className="mt-4 text-right">
                 <span className="text-xs font-bold text-gray-900 dark:text-white">Total: 0 VA</span>
               </div>
-              <button type="button" className="mt-4 w-full flex items-center justify-center gap-2 rounded-xl bg-[#1877F2] py-3 text-sm font-bold text-white shadow-md hover:bg-blue-600 transition-all">
+              <button type="button" className="mt-4 w-full flex items-center justify-center gap-2 rounded-xl bg-primary py-3 text-sm font-bold text-white shadow-md hover:opacity-90 transition-all">
                 <Plus className="h-4 w-4" />
                 Add equipment
               </button>
@@ -226,8 +226,8 @@ export default function LoadCalculationsPage() {
                         <input type="text" defaultValue="2" className="w-10 rounded-lg bg-[#F8F9FA] dark:bg-gray-800 px-1 py-2 text-center text-xs font-bold text-gray-700 dark:text-white border border-transparent shadow-sm" />
                       </td>
                       <td className="py-4 px-2 text-center">
-                        <div className="relative inline-flex h-4 w-9 cursor-pointer rounded-full bg-blue-100 dark:bg-gray-700 transition-colors">
-                          <span className="absolute left-0.5 top-0.5 h-3 w-3 translate-x-5 rounded-full bg-[#1877F2] transition-transform shadow-sm" />
+                        <div className="relative inline-flex items-center h-5 w-10 cursor-pointer rounded-[4px] bg-[#B9D6D1] dark:bg-gray-800 transition-colors">
+                          <span className="h-6 w-5 translate-x-5 rounded-[4px] bg-primary transition-transform shadow-md" />
                         </div>
                       </td>
                       <td className="py-4 px-2">
@@ -248,7 +248,7 @@ export default function LoadCalculationsPage() {
             <div className="mt-6 text-right">
               <span className="text-xs font-bold text-gray-900 dark:text-white">Total: 8,099 VA</span>
             </div>
-            <button type="button" className="mt-4 w-full flex items-center justify-center gap-2 rounded-xl bg-[#1877F2] py-3 text-sm font-bold text-white shadow-md hover:bg-blue-600 transition-all">
+            <button type="button" className="mt-4 w-full flex items-center justify-center gap-2 rounded-xl bg-primary py-3 text-sm font-bold text-white shadow-md hover:opacity-90 transition-all">
               <Plus className="h-4 w-4" />
               Add equipment
             </button>
@@ -291,7 +291,7 @@ export default function LoadCalculationsPage() {
             <div className="mt-6 text-right">
               <span className="text-xs font-bold text-gray-900 dark:text-white">Total: 9,600 VA</span>
             </div>
-            <button type="button" className="mt-4 w-full flex items-center justify-center gap-2 rounded-xl bg-[#1877F2] py-3 text-sm font-bold text-white shadow-md hover:bg-blue-600 transition-all">
+            <button type="button" className="mt-4 w-full flex items-center justify-center gap-2 rounded-xl bg-primary py-3 text-sm font-bold text-white shadow-md hover:opacity-90 transition-all">
               <Plus className="h-4 w-4" />
               Add equipment
             </button>
@@ -358,7 +358,7 @@ export default function LoadCalculationsPage() {
                 </button>
                 <button 
                   onClick={() => router.push("/create-project/panel")}
-                  className="flex-1 rounded-xl bg-[#1877F2] py-4 text-sm font-bold text-white shadow-[0_10px_20px_-5px_rgba(24,119,242,0.4)] hover:bg-blue-600 transition-all active:scale-95"
+                  className="flex-1 rounded-xl bg-primary py-4 text-sm font-bold text-white shadow-lg shadow-primary/20 hover:opacity-90 transition-all active:scale-95"
                 >
                   Save & Next
                 </button>
